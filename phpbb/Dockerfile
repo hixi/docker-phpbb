@@ -13,6 +13,8 @@ RUN apt-get update && apt-get install -y \
   && docker-php-ext-configure pgsql -with-pgsql=/usr/include/postgresql/ \
 	&& docker-php-ext-install -j$(nproc) pgsql pdo_pgsql pdo
 
+RUN a2enmod rewrite
+
 COPY ./wait-for-it/wait-for-it.sh /bin/wait-for-it.sh
 
 COPY ./3.1.9/phpBB3 /var/www/html/
