@@ -1,0 +1,14 @@
+version: '2'
+services:
+  phpbb:
+    image: njordan/phpbb
+    build:
+      context: phpbb/
+      dockerfile: Dockerfile
+    links:
+      - db:db
+  db:
+    image: postgres:9
+    environment:
+      - POSTGRES_USER=phpbb
+      - POSTGRES_PASSWORD=phpbb

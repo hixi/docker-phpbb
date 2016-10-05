@@ -1,0 +1,5 @@
+version: '2'
+services:
+  phpbb:
+    ports:
+      - "8808:80"
